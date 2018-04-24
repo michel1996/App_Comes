@@ -63,7 +63,7 @@ public class vender extends AppCompatActivity implements View.OnClickListener{
                         int r=obtDatosJSON(resultado);
                         if(r>0)
                         {
-                            Toast.makeText(getApplicationContext(),"Publicación exitosa",Toast.LENGTH_LONG).show();
+                            //Toast.makeText(getApplicationContext(),"Publicación exitosa",Toast.LENGTH_LONG).show();
                         }
                         else
                         {
@@ -106,7 +106,7 @@ public class vender extends AppCompatActivity implements View.OnClickListener{
 
         try
         {
-            url=new URL("http://148.210.83.119/Comes/publicar.php?titulo="+titulo+"&descripcion="+descripcion+"&precio="+precio+"&cantidad="+cantidad);
+            url=new URL("http://192.168.1.69/Comes/publicar.php?titulo="+titulo+"&descripcion="+descripcion+"&precio="+precio+"&cantidad="+cantidad);
             HttpURLConnection connection=(HttpURLConnection)url.openConnection();
             respuesta=connection.getResponseCode();
 

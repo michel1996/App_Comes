@@ -19,7 +19,7 @@ import java.net.URL;
 
 public class MainActivity extends AppCompatActivity  implements View.OnClickListener{
 
-    Button btnIngresar;
+    Button btnIngresar,btnRegistro;
     EditText usuario, password;
 
     @Override
@@ -31,37 +31,52 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
         password=(EditText)findViewById(R.id.password);
         btnIngresar=(Button)findViewById(R.id.btnIngresar);
         btnIngresar.setOnClickListener(this);
+
+        btnRegistro=(Button)findViewById(R.id.btnRegistro);
+        btnRegistro.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View view) {
-        Thread tr=new Thread()
+
+        switch (view.getId())
         {
-            @Override
-            public void run()
-            {
-                final String resultado=enviarDatosGET(usuario.getText().toString(),password.getText().toString());
-                runOnUiThread(new Runnable()
+            case R.id.btnIngresar:
+                Thread tr=new Thread()
                 {
                     @Override
                     public void run()
                     {
-                        int r=obtDatosJSON(resultado);
-                        if(r>0)
+                        final String resultado=enviarDatosGET(usuario.getText().toString(),password.getText().toString());
+                        runOnUiThread(new Runnable()
                         {
-                            Intent i=new Intent(getApplicationContext(),login.class);
-                            i.putExtra("cod",usuario.getText().toString());
-                            startActivity(i);
-                        }
-                        else
-                        {
-                            Toast.makeText(getApplicationContext(),"Usuario o password incorrectos",Toast.LENGTH_LONG).show();
-                        }
+                            @Override
+                            public void run()
+                            {
+                                int r=obtDatosJSON(resultado);
+                                if(r>0)
+                                {
+                                    Intent i=new Intent(getApplicationContext(),login.class);
+                                    i.putExtra("cod",usuario.getText().toString());
+                                    startActivity(i);
+                                }
+                                else
+                                {
+                                    Toast.makeText(getApplicationContext(),"Usuario o password incorrectos",Toast.LENGTH_LONG).show();
+                                }
+                            }
+                        });
                     }
-                });
-            }
-        };
-        tr.start();
+                };
+                tr.start();
+                break;
+
+            case R.id.btnRegistro:
+                Intent i=new Intent(getApplicationContext(),registro.class);
+                startActivity(i);
+                break;
+        }
+
     }
 
     public String enviarDatosGET(String usuario,String password)
@@ -73,7 +88,7 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
 
         try
         {
-            url=new URL("http://148.210.83.119/Comes/login.php?usuario="+usuario+"&password="+password);
+            url=new URL("http://192.168.1.69/Comes/login.php?usuario="+usuario+"&password="+password);
             HttpURLConnection connection=(HttpURLConnection)url.openConnection();
             respuesta=connection.getResponseCode();
 
