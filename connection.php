@@ -3,11 +3,11 @@
 $HostName = "127.0.0.1";
 
 //Define your database username here.
-$HostUser = "root";
+$HostUser = "comes";
 
 //Define your database password here.
-$HostPass = "";
+$HostPass = "proyectocomes";
 
 //Define your database name here.
-$DatabaseName = "comes";
+$DatabaseName = "id5541504_comes";
 ?>
