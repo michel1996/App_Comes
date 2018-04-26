@@ -1,5 +1,6 @@
 package com.apps.michelramirez.comes_3;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -64,6 +65,9 @@ public class vender extends AppCompatActivity implements View.OnClickListener{
                         if(r>0)
                         {
                             //Toast.makeText(getApplicationContext(),"Publicación exitosa",Toast.LENGTH_LONG).show();
+                            Intent i=new Intent(getApplicationContext(),image.class);
+                            i.putExtra("idProducto",r);
+                            startActivity(i);
                         }
                         else
                         {
@@ -106,7 +110,7 @@ public class vender extends AppCompatActivity implements View.OnClickListener{
 
         try
         {
-            url=new URL("http://192.168.1.69/Comes/publicar.php?titulo="+titulo+"&descripcion="+descripcion+"&precio="+precio+"&cantidad="+cantidad);
+            url=new URL("http://148.210.100.196/Comes/publicar.php?titulo="+titulo+"&descripcion="+descripcion+"&precio="+precio+"&cantidad="+cantidad);
             HttpURLConnection connection=(HttpURLConnection)url.openConnection();
             respuesta=connection.getResponseCode();
 
@@ -137,11 +141,16 @@ public class vender extends AppCompatActivity implements View.OnClickListener{
     public int obtDatosJSON(String response)
     {
         int res=0;
+        String str="";
         try
         {
             JSONArray json=new JSONArray(response);
             if(json.length()>0)
-                res=1;
+            {
+                str = response.replaceAll("\\D+","");
+                res= Integer.parseInt(str);
+            }
+
         }catch(Exception e){}
         return res;
     }

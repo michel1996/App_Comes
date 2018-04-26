@@ -85,7 +85,7 @@ public class registro extends AppCompatActivity implements View.OnClickListener{
 
         try
         {
-            url=new URL("http://192.168.1.69/Comes/registro.php?nombre="+nombre+"&apellido="+apellido+"&telefono="+telefono+"&email="+email+"&password="+password);
+            url=new URL("http://148.210.100.196/Comes/registro.php?nombre="+nombre+"&apellido="+apellido+"&telefono="+telefono+"&email="+email+"&password="+password);
             HttpURLConnection connection=(HttpURLConnection)url.openConnection();
             respuesta=connection.getResponseCode();
 

@@ -1,16 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".login">
+    android:background="@android:color/background_light"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="192dp"
+        android:layout_height="124dp"
+        app:srcCompat="@drawable/logo" />
+
+    <Button
+        android:id="@+id/button_buy"
+        android:layout_width="170dp"
+        android:layout_height="64dp"
+        android:layout_margin="15dp"
+        android:background="?attr/colorError"
+        android:text="Catálogo"
+        android:textColor="@android:color/background_light"
+        android:textSize="24sp" />
 
     <Button
         android:id="@+id/btnVender"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Vender Producto" />
+        android:layout_width="170dp"
+        android:layout_height="64dp"
+        android:layout_margin="15dp"
+        android:background="?attr/colorError"
+        android:text="Vender Producto"
+        android:textColor="@android:color/background_light"
+        android:textSize="24sp" />
 
+    <Button
+        android:id="@+id/button_options"
+        android:layout_width="170dp"
+        android:layout_height="64dp"
+        android:layout_margin="15dp"
+        android:background="?attr/colorError"
+        android:text="Opciones"
+        android:textColor="@android:color/background_light"
+        android:textSize="24sp" />
 
-</android.support.constraint.ConstraintLayout>
+    <Button
+        android:id="@+id/button_exit"
+        android:layout_width="170dp"
+        android:layout_height="64dp"
+        android:layout_margin="15dp"
+        android:background="?attr/colorError"
+        android:text="Salir"
+        android:textColor="@android:color/background_light"
+        android:textSize="24sp" />
+
+</LinearLayout>
