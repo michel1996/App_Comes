@@ -3,16 +3,16 @@
 	$password=$_REQUEST["password"];
 	
 	$servidor="127.0.0.1";
-	$db="comes";
-	$dbUsuario="root";
-	$dbPassword="";
+	$db="id5541504_comes";
+	$dbUsuario="comes";
+	$dbPassword="proyectocomes";
 	try
 	{
 		$con=new PDO("mysql:host=$servidor;dbname=$db",$dbUsuario,$dbPassword,array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES  \'UTF8\''));
 		$con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		
 		$datos=array();
-		$res=$con->query("select * from usuario where username='$usuario' and password='$password'");
+		$res=$con->query("select * from usuario where email='$usuario' and password='$password'");
 		foreach($res as $row)
 		{
 			$datos[]=$row;

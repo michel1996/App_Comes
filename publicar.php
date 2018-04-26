@@ -5,9 +5,9 @@
 	$cantidad=$_REQUEST["cantidad"];
 	
 	$servidor="127.0.0.1";
-	$db="comes";
-	$dbUsuario="root";
-	$dbPassword="";
+	$db="id5541504_comes";
+	$dbUsuario="comes";
+	$dbPassword="proyectocomes";
 	try
 	{
 		
@@ -17,7 +17,8 @@
 		try
 		{
 			$res=$con->query("INSERT INTO producto (nombre, descripcion, precio,cantidad) VALUES('$titulo','$descripcion', '$precio', '$cantidad')");
-			$response=array("true");
+			$id=$con->lastInsertId();
+			$response=array("true",strval($id));
 			
 			echo json_encode($response);
 		}
