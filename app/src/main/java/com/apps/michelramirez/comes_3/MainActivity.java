@@ -88,7 +88,7 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
 
         try
         {
-            url=new URL("http://148.210.100.196/Comes/login.php?usuario="+usuario+"&password="+password);
+            url=new URL("http://proyectocomes.000webhostapp.com/login.php?usuario="+usuario+"&password="+password);
             HttpURLConnection connection=(HttpURLConnection)url.openConnection();
             respuesta=connection.getResponseCode();
 

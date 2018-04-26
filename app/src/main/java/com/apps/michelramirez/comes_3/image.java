@@ -52,7 +52,7 @@ public class image extends AppCompatActivity {
 
     String ImagePath = "image_path" ;
 
-    String ServerUploadPath ="http://148.210.100.196/Comes/image.php" ;
+    String ServerUploadPath ="http://proyectocomes.000webhostapp.com/image.php" ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

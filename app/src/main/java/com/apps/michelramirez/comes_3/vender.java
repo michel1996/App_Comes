@@ -110,7 +110,7 @@ public class vender extends AppCompatActivity implements View.OnClickListener{
 
         try
         {
-            url=new URL("http://148.210.100.196/Comes/publicar.php?titulo="+titulo+"&descripcion="+descripcion+"&precio="+precio+"&cantidad="+cantidad);
+            url=new URL("http://proyectocomes.000webhostapp.com/publicar.php?titulo="+titulo+"&descripcion="+descripcion+"&precio="+precio+"&cantidad="+cantidad);
             HttpURLConnection connection=(HttpURLConnection)url.openConnection();
             respuesta=connection.getResponseCode();
 
