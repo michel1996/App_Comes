@@ -17,7 +17,8 @@
 		try
 		{
 			$res=$con->query("INSERT INTO producto (nombre, descripcion, precio,cantidad) VALUES('$titulo','$descripcion', '$precio', '$cantidad')");
-			$response=array("true");
+			$id=$con->lastInsertId();
+			$response=array("true",strval($id));
 			
 			echo json_encode($response);
 		}

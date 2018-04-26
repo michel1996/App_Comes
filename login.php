@@ -12,7 +12,7 @@
 		$con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		
 		$datos=array();
-		$res=$con->query("select * from usuario where username='$usuario' and password='$password'");
+		$res=$con->query("select * from usuario where email='$usuario' and password='$password'");
 		foreach($res as $row)
 		{
 			$datos[]=$row;
