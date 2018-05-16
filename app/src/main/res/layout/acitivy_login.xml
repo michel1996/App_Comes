@@ -14,7 +14,7 @@
         app:srcCompat="@drawable/logo" />
 
     <Button
-        android:id="@+id/button_buy"
+        android:id="@+id/btnCatalogo"
         android:layout_width="170dp"
         android:layout_height="64dp"
         android:layout_margin="15dp"
@@ -34,7 +34,7 @@
         android:textSize="24sp" />
 
     <Button
-        android:id="@+id/button_options"
+        android:id="@+id/btnOpciones"
         android:layout_width="170dp"
         android:layout_height="64dp"
         android:layout_margin="15dp"

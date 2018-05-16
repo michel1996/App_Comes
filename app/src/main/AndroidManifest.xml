@@ -25,7 +25,11 @@
         <activity android:name=".vender" />
         <activity android:name=".registro" />
         <activity android:name=".image" />
-        <activity android:name=".opciones"></activity>
+        <activity android:name=".opciones" />
+        <activity android:name=".perfil" />
+        <activity android:name=".ventas" />
+        <activity android:name=".catalogo" />
+        <activity android:name=".producto"></activity>
     </application>
 
 </manifest>

@@ -55,7 +55,7 @@ public class registro extends AppCompatActivity implements View.OnClickListener{
                         switch(r)
                         {
                             case 1:
-                                Intent i=new Intent(getApplicationContext(),login.class);
+                                Intent i=new Intent(getApplicationContext(),MainActivity.class);
                                 startActivity(i);
                                 break;
 

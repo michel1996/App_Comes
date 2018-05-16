@@ -24,6 +24,7 @@ public class vender extends AppCompatActivity implements View.OnClickListener{
 
     Button btnPublicar;
     EditText titulo, descripcion,precio;
+    String idusuario="";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +35,8 @@ public class vender extends AppCompatActivity implements View.OnClickListener{
         precio=(EditText) findViewById(R.id.precio);
         btnPublicar=(Button)findViewById(R.id.btnPublicar);
         btnPublicar.setOnClickListener(this);
+
+        idusuario=getIntent().getStringExtra("idusuario");
     }
 
     @Override
@@ -55,7 +58,7 @@ public class vender extends AppCompatActivity implements View.OnClickListener{
                 int val_cantidad=cantidad.getQuantity();
                 //String val_cantidad=String.valueOf(num_cantidad);
 
-                final String resultado=enviarDatosGET(val_titulo,val_descripcion,val_precio,val_cantidad);
+                final String resultado=enviarDatosGET(idusuario,val_titulo,val_descripcion,val_precio,val_cantidad);
                 runOnUiThread(new Runnable()
                 {
                     @Override
@@ -101,7 +104,7 @@ public class vender extends AppCompatActivity implements View.OnClickListener{
         return true;
     }
 
-    public String enviarDatosGET(String titulo,String descripcion,String precio,int cantidad)
+    public String enviarDatosGET(String idusuario,String titulo,String descripcion,String precio,int cantidad)
     {
         URL url=null;
         String linea="";
@@ -110,7 +113,7 @@ public class vender extends AppCompatActivity implements View.OnClickListener{
 
         try
         {
-            url=new URL("http://proyectocomes.000webhostapp.com/publicar.php?titulo="+titulo+"&descripcion="+descripcion+"&precio="+precio+"&cantidad="+cantidad);
+            url=new URL("http://proyectocomes.000webhostapp.com/publicar.php?titulo="+titulo+"&descripcion="+descripcion+"&precio="+precio+"&cantidad="+cantidad+"&idusuario="+idusuario);
             HttpURLConnection connection=(HttpURLConnection)url.openConnection();
             respuesta=connection.getResponseCode();
 

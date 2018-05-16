@@ -1,5 +1,6 @@
 package com.apps.michelramirez.comes_3;
 
+import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -22,10 +23,14 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
     Button btnIngresar,btnRegistro;
     EditText usuario, password;
 
+    private Session session;//global variable
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        session = new Session(getApplicationContext()); // en onCreate
 
         usuario=(EditText)findViewById(R.id.usuario);
         password=(EditText)findViewById(R.id.password);
@@ -48,16 +53,30 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
                     public void run()
                     {
                         final String resultado=enviarDatosGET(usuario.getText().toString(),password.getText().toString());
+
+
+
                         runOnUiThread(new Runnable()
                         {
                             @Override
                             public void run()
                             {
+                               // Toast.makeText(getApplicationContext(),resultado.substring(15,16),Toast.LENGTH_LONG).show();
                                 int r=obtDatosJSON(resultado);
                                 if(r>0)
                                 {
+                                    session.setusename(usuario.getText().toString()); // antes de abrir la actividad
                                     Intent i=new Intent(getApplicationContext(),login.class);
-                                    i.putExtra("cod",usuario.getText().toString());
+                                    if(Character.isDigit(resultado.charAt(16)))
+                                    {
+                                        i.putExtra("idusuario",resultado.substring(15,17));
+                                    }
+                                    else
+                                    {
+                                        i.putExtra("idusuario",resultado.substring(15,16));
+                                    }
+
+
                                     startActivity(i);
                                 }
                                 else
