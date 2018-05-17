@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -33,6 +34,8 @@ public class producto extends AppCompatActivity {
     JSONArray array = null;
 
     TextView usuario, telefono, producto, descripcion, cantidad;
+
+    EditText ubicacion;
     ImageView food_image;
     Button compra;
 
@@ -46,19 +49,21 @@ public class producto extends AppCompatActivity {
         session = new Session(getApplicationContext()); //in oncreate
 
         usuario=(TextView)findViewById(R.id.usuario);
-        telefono=(TextView)findViewById(R.id.telefono);
-        producto=(TextView)findViewById(R.id.producto);
-        descripcion=(TextView)findViewById(R.id.descripcion);
+        telefono=(TextView)findViewById(R.id.text2);
+        producto=(TextView)findViewById(R.id.comprador);
+        descripcion=(TextView)findViewById(R.id.vendedor);
         cantidad=(TextView)findViewById(R.id.cantidad);
         food_image = (ImageView)findViewById(R.id.imagen);
         compra=(Button)findViewById(R.id.btncompra);
+
+        ubicacion=(EditText)findViewById(R.id.ubicacion);
 
         compra.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 new Thread() {
                     public void run() {
                         try {
-                            array = new JSONArray(enviarDatosGET());
+                            array = new JSONArray(enviarDatosGET(ubicacion.toString()));
                         }
                         catch(Exception e){
                             Log.d("asdsa", "fuck:" + e);
@@ -141,7 +146,7 @@ public class producto extends AppCompatActivity {
     }
 
 
-    public String enviarDatosGET()
+    public String enviarDatosGET(String ubicacion)
     {
         URL url=null;
         String linea="";
@@ -150,7 +155,7 @@ public class producto extends AppCompatActivity {
 
         try
         {
-            url=new URL("http://proyectocomes.000webhostapp.com/orden.php?email="+idusuario+"&idproducto="+getIntent().getStringExtra("ID_PRODUCTO"));
+            url=new URL("http://proyectocomes.000webhostapp.com/orden.php?ubicacion="+ubicacion+"&email="+idusuario+"&idproducto="+getIntent().getStringExtra("ID_PRODUCTO"));
             HttpURLConnection connection=(HttpURLConnection)url.openConnection();
             respuesta=connection.getResponseCode();
 

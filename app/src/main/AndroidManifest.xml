@@ -29,7 +29,9 @@
         <activity android:name=".perfil" />
         <activity android:name=".ventas" />
         <activity android:name=".catalogo" />
-        <activity android:name=".producto"></activity>
+        <activity android:name=".producto" />
+        <activity android:name=".orden" />
+        <activity android:name=".detalles"></activity>
     </application>
 
 </manifest>

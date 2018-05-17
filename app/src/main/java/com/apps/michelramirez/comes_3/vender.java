@@ -31,7 +31,7 @@ public class vender extends AppCompatActivity implements View.OnClickListener{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_vender);
         titulo=(EditText)findViewById(R.id.titulo);
-        descripcion=(EditText)findViewById(R.id.descripcion);
+        descripcion=(EditText)findViewById(R.id.vendedor);
         precio=(EditText) findViewById(R.id.precio);
         btnPublicar=(Button)findViewById(R.id.btnPublicar);
         btnPublicar.setOnClickListener(this);

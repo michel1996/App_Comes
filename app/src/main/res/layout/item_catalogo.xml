@@ -23,7 +23,7 @@
         android:layout_toRightOf="@+id/imageView_food"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:layout_above="@+id/textView_2"
+        android:layout_above="@+id/ubicacion"
         android:layout_margin="5dp" />
 
     <TextView
@@ -33,8 +33,8 @@
         android:text="Descripcion"
         android:id="@+id/textView_2"
         android:layout_alignBottom="@+id/imageView_food"
-        android:layout_alignLeft="@+id/textView_1"
-        android:layout_alignStart="@+id/textView_1"
+        android:layout_alignLeft="@+id/fecha"
+        android:layout_alignStart="@+id/fecha"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:layout_margin="5dp" />

@@ -20,37 +20,15 @@
         app:srcCompat="@drawable/logo" />
 
     <TextView
-        android:id="@+id/usuario"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="44dp"
-        android:layout_gravity="center"
-        android:textSize="20sp"
-        android:text="TextView" />
-
-    <TextView
-        android:id="@+id/text2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/usuario"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="19dp"
-        android:layout_gravity="center"
-        android:textSize="20sp"
-        android:text="TextView" />
-
-    <TextView
         android:id="@+id/comprador"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/text2"
         android:layout_below="@+id/text2"
-        android:layout_marginTop="25dp"
         android:layout_gravity="center"
-        android:textSize="20sp"
-        android:text="TextView" />
+        android:layout_marginTop="25dp"
+        android:text="Comprador: "
+        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/vendedor"
@@ -58,38 +36,31 @@
         android:layout_height="wrap_content"
         android:layout_alignEnd="@+id/comprador"
         android:layout_below="@+id/comprador"
-        android:layout_marginTop="23dp"
         android:layout_gravity="center"
-        android:textSize="20sp"
-        android:text="TextView" />
+        android:layout_marginTop="23dp"
+        android:text="Vendedor: "
+        android:textSize="20sp" />
 
     <TextView
-        android:id="@+id/cantidad"
+        android:id="@+id/estado"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/vendedor"
         android:layout_below="@+id/vendedor"
-        android:layout_marginTop="27dp"
         android:layout_gravity="center"
-        android:textSize="20sp"
-        android:text="TextView" />
+        android:layout_marginTop="27dp"
+        android:text="Estado: "
+        android:textSize="20sp" />
 
-    <EditText
-        android:id="@+id/ubicacion"
-        android:layout_width="354dp"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Salón a entregar la orden"
-        android:inputType="textPersonName" />
 
     <Button
-        android:id="@+id/btncompra"
+        android:id="@+id/btnDetalle"
         android:layout_width="wrap_content"
         android:layout_height="43dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_gravity="center"
         android:layout_marginBottom="48dp"
-        android:text="Confirmar Compra" />
+        android:text="Completar" />
 
 </LinearLayout>

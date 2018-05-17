@@ -61,7 +61,8 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
                             @Override
                             public void run()
                             {
-                               // Toast.makeText(getApplicationContext(),resultado.substring(15,16),Toast.LENGTH_LONG).show();
+
+                                // Toast.makeText(getApplicationContext(),resultado.substring(15,16),Toast.LENGTH_LONG).show();
                                 int r=obtDatosJSON(resultado);
                                 if(r>0)
                                 {
@@ -138,6 +139,7 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
     public int obtDatosJSON(String response)
     {
         int res=0;
+        //Toast.makeText(getApplicationContext(),response,Toast.LENGTH_LONG).show();
         try
         {
             JSONArray json=new JSONArray(response);
